@@ -2,7 +2,6 @@ using AutoMapper;
 using user_registration_api.DefaultDomain.Dtos;
 using user_registration_api.DefaultDomain.Models;
 using user_registration_api.DefaultDomain.Services;
-using user_registration_api.Seguridad.Services;
 using EscuelaPolitecnicaNacional.DgipCommonsLib.Exceptions;
 using EscuelaPolitecnicaNacional.DgipCommonsLib.Models;
 using EscuelaPolitecnicaNacional.DgipCommonsLib.Models.Controllers;

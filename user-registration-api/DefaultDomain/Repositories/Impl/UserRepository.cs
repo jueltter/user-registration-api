@@ -10,7 +10,7 @@ using static LanguageExt.Prelude;
 namespace user_registration_api.DefaultDomain.Repositories.Impl;
 
 public class UserRepository(
-    IDbContextFactory<SqlServerDataContext> contextFactory,
+    IDbContextFactory<CustomDbContext> contextFactory,
     IMapper mapper,
     ILogger<UserRepository> logger) : IUserRepository
 {
