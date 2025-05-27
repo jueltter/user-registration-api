@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace user_registration_api.Controllers
+namespace user_registration_api.DefaultDomain.Controllers
 {
     [ApiController]
     [Route("[controller]")]
