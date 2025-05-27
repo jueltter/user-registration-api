@@ -1,0 +1,6 @@
+services:
+  user-registration-api:
+    image: ${DOCKER_REGISTRY-}userregistrationapi
+    build:
+      context: .
+      dockerfile: user-registration-api/Dockerfile
