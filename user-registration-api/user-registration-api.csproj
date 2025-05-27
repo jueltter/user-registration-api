@@ -22,7 +22,6 @@
     <Folder Include="DefaultDomain\Dtos\Validators\" />
     <Folder Include="DefaultDomain\Models\Validators\" />
     <Folder Include="DefaultDomain\Repositories\Impl\" />
-    <Folder Include="DefaultDomain\Services\Impl\" />
   </ItemGroup>
 
 </Project>
