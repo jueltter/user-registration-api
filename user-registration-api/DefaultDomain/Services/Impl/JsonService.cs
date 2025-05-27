@@ -4,7 +4,7 @@ using static LanguageExt.Prelude;
 
 namespace user_registration_api.DefaultDomain.Services.Impl;
 
-public class JsonService
+public class JsonService : IJsonService
 {
     private readonly JsonSerializerOptions _jsonSerializerOptions = new()
     {
