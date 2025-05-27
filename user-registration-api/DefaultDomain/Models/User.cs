@@ -9,7 +9,7 @@ public class User
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     [Key]
     [Column("id")]
-    public int? IdUser { get; set; }
+    public long? IdUser { get; set; }
     
     [MaxLength(short.MaxValue)]
     [Column("username")]
