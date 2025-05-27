@@ -1,6 +1,7 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
 using user_registration_api.DefaultDomain.Data;
+using user_registration_api.DefaultDomain.Middleware;
 using user_registration_api.DefaultDomain.Repositories;
 using user_registration_api.DefaultDomain.Repositories.Impl;
 using user_registration_api.DefaultDomain.Services;
@@ -13,7 +14,11 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IJsonService, JsonService>();
 
-builder.Services.AddControllers();
+builder.Services.AddControllers(options =>
+    {
+        options.Filters.Add<GlobalExceptionFilter>();
+    }
+);
 
 // model validators configuration
 foreach (var assembly in AppDomain.CurrentDomain.GetAssemblies()) builder.Services.AddValidatorsFromAssembly(assembly);
