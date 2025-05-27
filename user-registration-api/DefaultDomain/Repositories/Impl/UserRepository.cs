@@ -19,7 +19,7 @@ public class UserRepository(
         try
         {
             await using var context = await contextFactory.CreateDbContextAsync();
-            IQueryable<User> query = context.users;
+            IQueryable<User> query = context.Users;
 
             if (search is { IdUser: not null })
             {
@@ -66,7 +66,7 @@ public class UserRepository(
         try
         {
             await using var context = await contextFactory.CreateDbContextAsync();
-            var entity = await context.users.FindAsync(id);
+            var entity = await context.Users.FindAsync(id);
             var entityAsOption = Optional(entity);
             entityAsOption.Match(
                 Some: _ => logger.Log(LogLevel.Trace, "read entity id: {}", id),
@@ -85,7 +85,7 @@ public class UserRepository(
         try
         {
             await using var context = await contextFactory.CreateDbContextAsync();
-            var entityEntry = await context.users.AddAsync(model);
+            var entityEntry = await context.Users.AddAsync(model);
             await context.SaveChangesAsync();
             logger.Log(LogLevel.Trace, "created entity id: {}", entityEntry.Entity.IdUser);
             return entityEntry.Entity;
@@ -106,7 +106,7 @@ public class UserRepository(
             var entityAsOption = await FindByIdAsync(model.IdUser.Value);
             var entity = entityAsOption.IfNone(() => throw new InvalidOperationException("El campo IdUser no corresponde a ningún registro."));
             mapper.Map(model, entity);
-            var entityEntry = context.users.Update(entity);
+            var entityEntry = context.Users.Update(entity);
             await context.SaveChangesAsync();
             logger.Log(LogLevel.Trace, "updated entity id: {}", entityEntry.Entity.IdUser);
             return entityEntry.Entity;
@@ -124,7 +124,7 @@ public class UserRepository(
             await using var context = await contextFactory.CreateDbContextAsync();
             var entityAsOption = await FindByIdAsync(id);
             var entity = entityAsOption.IfNone(() => throw new InvalidOperationException("El campo IdUser no corresponde a ningún registro."));
-            var entityEntry = context.users.Remove(entity);
+            var entityEntry = context.Users.Remove(entity);
             await context.SaveChangesAsync();
             logger.Log(LogLevel.Trace, "deleted entity id: {}", entityEntry.Entity.IdUser);
             return entityEntry.Entity;
@@ -140,7 +140,7 @@ public class UserRepository(
         try
         {
             await using var context = await contextFactory.CreateDbContextAsync();
-            IQueryable<User> query = context.users;
+            IQueryable<User> query = context.Users;
 
             if (search is { IdUser: not null })
             {
